@@ -104,3 +104,13 @@ export const allFaqs = [
   { q: "How long does the process take?", a: "Timelines vary widely, as visa processing, credential checks and employer schedules are outside anyone’s control." },
   { q: "Is my information kept private?", a: "We only collect what you submit through our forms, and explain how it is used in our Privacy Policy." },
 ];
+
+/** Flag-inspired styling per destination: `flag` is a CSS background for the mini flag, `stripes` are the flag colours, `accent` is a glow-safe highlight. */
+export const destStyle: Record<string, { flag: string; stripes: string[]; accent: string }> = {
+  australia: { flag: "linear-gradient(120deg,#012169 0 60%,#fff 60% 68%,#E4002B 68%)", stripes: ["#012169", "#ffffff", "#E4002B"], accent: "#4f8bff" },
+  canada: { flag: "linear-gradient(90deg,#D80621 0 25%,#fff 25% 75%,#D80621 75%)", stripes: ["#D80621", "#ffffff", "#D80621"], accent: "#ff4d5a" },
+  "united-kingdom": { flag: "linear-gradient(#0000 40%,#fff 40% 60%,#0000 60%),linear-gradient(90deg,#0000 42%,#fff 42% 58%,#0000 58%),linear-gradient(#0000 45%,#C8102E 45% 55%,#0000 55%),linear-gradient(90deg,#0000 46%,#C8102E 46% 54%,#0000 54%),#012169", stripes: ["#012169", "#ffffff", "#C8102E"], accent: "#ff5468" },
+  germany: { flag: "linear-gradient(#000 0 33.3%,#DD0000 33.3% 66.6%,#FFCE00 66.6%)", stripes: ["#000000", "#DD0000", "#FFCE00"], accent: "#FFCE00" },
+  uae: { flag: "linear-gradient(90deg,#FF0000 0 25%,#0000 25%),linear-gradient(#00732F 0 33.3%,#fff 33.3% 66.6%,#000 66.6%)", stripes: ["#00732F", "#ffffff", "#000000", "#FF0000"], accent: "#19c15a" },
+  "new-zealand": { flag: "linear-gradient(120deg,#00247D 0 62%,#fff 62% 70%,#CC142B 70%)", stripes: ["#00247D", "#ffffff", "#CC142B"], accent: "#38bdf8" },
+};

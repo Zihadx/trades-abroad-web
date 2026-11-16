@@ -5,7 +5,7 @@ import Photo from "@/components/Photo";
 import { Tilt } from "@/components/Extras";
 import { articleImg, destImg, img, tradeImg } from "@/lib/images";
 import { icons } from "@/lib/icons";
-import { articles, destinations, trades, why } from "@/lib/data";
+import { articles, destFacts, destStyle, destinations, trades, why } from "@/lib/data";
 
 export function SectionHead({ eyebrow, title, body, href, cta }: { eyebrow: string; title: string; body?: string; href?: string; cta?: string }) {
   return (
@@ -50,25 +50,56 @@ export function Trades() {
 
 export function DestinationCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {destinations.map((d, i) => (
-        <Reveal key={d.slug} delay={(i % 3) * 0.07}>
-          <Tilt><Link href={`/destinations/${d.slug}`} className="group relative block h-[340px] overflow-hidden rounded-3xl border border-white/10 transition-colors hover:border-lime/60">
-            <Photo src={destImg[d.slug]} label={d.name} className="absolute inset-0" />
-            <span className="glass absolute left-5 top-5 rounded-full px-3 py-1 font-display text-sm tracking-widest">{d.code}</span>
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6">
-              <div><h3 className="font-display text-3xl font-semibold">{d.name}</h3><p className="mt-1 text-sm text-fg/75">{d.tagline}</p></div>
-              <span className="grid h-11 w-11 place-items-center rounded-full border border-white/25 transition-all group-hover:border-lime group-hover:bg-lime group-hover:text-ink"><ArrowRight size={18} /></span>
-            </div>
-          </Link></Tilt>
-        </Reveal>
-      ))}
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:[&>div:nth-child(3n+2)]:mt-10">
+      {destinations.map((d, i) => {
+        const st = destStyle[d.slug], f = destFacts[d.slug];
+        return (
+          <Reveal key={d.slug} delay={(i % 3) * 0.08}>
+            <Tilt>
+              <Link href={`/destinations/${d.slug}`} style={{ ["--ac" as string]: st.accent }} className="group relative block h-[440px] overflow-hidden rounded-[2rem] border border-white/10 transition-all duration-500 hover:border-[var(--ac)] hover:shadow-[0_40px_90px_-35px_var(--ac)]">
+                <Photo src={destImg[d.slug]} label={d.name} className="absolute inset-0" />
+                {/* flag-colour wash + tricolour edge */}
+                <div className="absolute inset-0 opacity-40 mix-blend-soft-light transition-opacity duration-500 group-hover:opacity-80" style={{ background: `linear-gradient(135deg, ${st.stripes.join(", ")})` }} />
+                <div className="absolute inset-x-0 top-0 flex h-1.5">{st.stripes.map((c, k) => <i key={k} className="flex-1" style={{ background: c }} />)}</div>
+                <div className="absolute -bottom-10 -right-2 select-none font-display text-[9rem] font-bold leading-none text-transparent opacity-40 transition-all duration-500 [-webkit-text-stroke:1px_var(--ac)] group-hover:-translate-y-3 group-hover:opacity-80" aria-hidden>{d.code}</div>
+                {/* mini flag + code */}
+                <div className="absolute left-5 top-6 flex items-center gap-3">
+                  <span className="h-8 w-12 rounded-md shadow-lg ring-1 ring-white/50 transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-110" style={{ background: st.flag }} />
+                  <span className="rounded-full border border-white/25 bg-white/10 px-3 py-1 font-display text-sm tracking-widest backdrop-blur-md">{d.code}</span>
+                </div>
+                {/* frosted light-glass panel */}
+                <div className="absolute inset-x-4 bottom-4 overflow-hidden rounded-3xl border border-white/25 bg-white/[0.11] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,.35)] backdrop-blur-2xl">
+                  <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                  <div className="relative flex items-end justify-between gap-3">
+                    <div>
+                      <h3 className="font-display text-3xl font-semibold leading-none">{d.name}</h3>
+                      <p className="mt-2 text-sm text-white/80">{d.tagline}</p>
+                    </div>
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/40 bg-white/10 transition-all duration-300 group-hover:border-transparent group-hover:bg-[var(--ac)] group-hover:text-ink"><ArrowRight size={18} className="transition-transform group-hover:-rotate-45" /></span>
+                  </div>
+                  <div className="relative mt-4 flex flex-wrap gap-2 text-[11px] text-white/85">
+                    <span className="rounded-full bg-white/12 px-3 py-1 ring-1 ring-white/20">Capital · {f.capital}</span>
+                    <span className="rounded-full bg-white/12 px-3 py-1 ring-1 ring-white/20">{f.currency.split(" (")[1]?.replace(")", "") ?? f.currency}</span>
+                  </div>
+                </div>
+              </Link>
+            </Tilt>
+          </Reveal>
+        );
+      })}
     </div>
   );
 }
 
 export function Destinations() {
-  return (<section className="bg-ink2 py-24"><div className="container-x"><SectionHead eyebrow="Global Destinations" title="Where could your skills go?" body="Illustrative destinations. Opportunities, visas and licensing vary and must be verified with official sources." href="/destinations" cta="All destinations" /><DestinationCards /></div></section>);
+  return (
+    <section className="relative overflow-hidden bg-ink2 py-24">
+      <div className="pointer-events-none absolute inset-0" aria-hidden>
+        {destinations.map((d, i) => <span key={d.slug} className="absolute h-72 w-72 rounded-full opacity-[0.13] blur-[90px]" style={{ background: destStyle[d.slug].accent, left: `${(i % 3) * 36 - 4}%`, top: `${i < 3 ? 8 : 55}%` }} />)}
+      </div>
+      <div className="container-x relative"><SectionHead eyebrow="Global Destinations" title="Where could your skills go?" body="Illustrative destinations. Opportunities, visas and licensing vary and must be verified with official sources." href="/destinations" cta="All destinations" /><DestinationCards /></div>
+    </section>
+  );
 }
 
 export function Why() {
