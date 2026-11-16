@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trades Abroad — first release
 
-## Getting Started
+Next.js (App Router) · TypeScript · Tailwind CSS 4 · Framer Motion · React Three Fiber / drei · Lucide
 
-First, run the development server:
-
+## Run
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run typecheck   # run this first
+npm run dev         # http://localhost:3000
+npm run build
 ```
+Requires Node 20.9+.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Status (read this)
+Written in an offline sandbox: it was **never installed, type-checked, built or viewed in a browser.** Expect a few small fixes on first run.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes included
+`/` (all 12 homepage sections), `/trades`, `/trades/[slug]`, `/destinations`, `/destinations/[slug]`, `/jobs` (filterable demo), `/how-it-works`, `/faq`, `/contact` (demo form), plus scaffolds for `/about`, `/employers`, `/resources`. Not yet built: `/jobs/[slug]`, `/resources/[slug]`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Photos
+Drop licensed images in and they replace the placeholders automatically:
+- `public/images/hero/worker.jpg`, `public/images/hero/employers.jpg`
+- `public/images/trades/<slug>.jpg`: electrical, plumbing, welding, construction, carpentry, hvac, mechanical, heavy-equipment, automotive, other-trades
+- `public/images/destinations/<slug>.jpg`: australia, canada, united-kingdom, germany, uae, new-zealand
+- `public/images/articles/<slug>.jpg`: international-trades-careers, preparing-overseas, trades-in-demand
+Your two mockups are in `public/reference/` (delete before deploying).
 
-## Learn More
+## Where to edit
+- `lib/data.ts`: trades, destinations, steps, FAQ, demo jobs, route origin (`HUB`)
+- `app/globals.css`: design tokens, buttons, glass
+- `components/Globe.tsx`: 3D globe (procedural stylised continents; swap in a texture or GLB later)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content rules
+No fake vacancies, partners, stats or testimonials; demo/placeholder content is labelled. GSAP and Lenis are not included; motion uses Framer Motion.
