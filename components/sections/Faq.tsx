@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { faqs } from "@/lib/data";
+import { allFaqs as faqs } from "@/lib/data";
 
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);

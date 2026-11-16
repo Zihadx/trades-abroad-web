@@ -75,3 +75,32 @@ export const jobs = [
   { id: 7, slug: "commercial-plumber-australia", title: "Commercial Plumber", trade: "plumbing", country: "australia", type: "Full-time" },
   { id: 8, slug: "diagnostics-technician-canada", title: "Vehicle Diagnostics Technician", trade: "automotive", country: "canada", type: "Full-time" },
 ];
+
+export const destFacts: Record<string, { capital: string; currency: string; language: string; tz: string }> = {
+  australia: { capital: "Canberra", currency: "Australian dollar (AUD)", language: "English", tz: "Australia/Sydney" },
+  canada: { capital: "Ottawa", currency: "Canadian dollar (CAD)", language: "English, French", tz: "America/Toronto" },
+  "united-kingdom": { capital: "London", currency: "Pound sterling (GBP)", language: "English", tz: "Europe/London" },
+  germany: { capital: "Berlin", currency: "Euro (EUR)", language: "German", tz: "Europe/Berlin" },
+  uae: { capital: "Abu Dhabi", currency: "UAE dirham (AED)", language: "Arabic (English widely used)", tz: "Asia/Dubai" },
+  "new-zealand": { capital: "Wellington", currency: "New Zealand dollar (NZD)", language: "English, Māori, NZ Sign Language", tz: "Pacific/Auckland" },
+};
+export const tradeTools: Record<string, string[]> = {
+  electrical: ["Multimeter", "Wire strippers", "Conduit benders", "Insulation tester"],
+  plumbing: ["Pipe wrenches", "Press tools", "Pipe cutters", "Leak detection gear"],
+  welding: ["MIG / TIG / Arc rigs", "Welding helmet", "Angle grinder", "Gauges & jigs"],
+  construction: ["Laser levels", "Formwork systems", "Power tools", "Site safety gear"],
+  carpentry: ["Saws & routers", "Chisels", "Framing nailers", "Measuring squares"],
+  hvac: ["Manifold gauges", "Vacuum pumps", "Flaring tools", "Airflow meters"],
+  mechanical: ["Torque wrenches", "Dial indicators", "Hydraulic tools", "Alignment kits"],
+  "heavy-equipment": ["Excavators", "Cranes", "Loaders", "Inspection checklists"],
+  automotive: ["Diagnostic scanners", "Lifts", "Torque tools", "Multimeters"],
+  "other-trades": ["Scaffolding", "Tiling tools", "Painting systems", "Insulation tools"],
+};
+export const allFaqs = [
+  ...faqs,
+  { q: "Does Trades Abroad charge fees?", a: "Pricing and any fees must be stated clearly in writing before you commit. Be cautious of anyone, anywhere, who asks for large upfront payments or guarantees a job." },
+  { q: "How do I know a listing is real?", a: "Verify the employer and role through official channels. Listings marked as demo on this site are samples and are not real vacancies." },
+  { q: "Do qualifications from my country count abroad?", a: "Recognition of overseas qualifications varies by country and trade. Check the licensing or regulatory body in your destination." },
+  { q: "How long does the process take?", a: "Timelines vary widely, as visa processing, credential checks and employer schedules are outside anyone’s control." },
+  { q: "Is my information kept private?", a: "We only collect what you submit through our forms, and explain how it is used in our Privacy Policy." },
+];

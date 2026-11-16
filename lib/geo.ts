@@ -1,0 +1,3 @@
+// Stylised continents as ellipses [lat, lon, radiusLat, radiusLon]
+const LAND = [[50, -105, 20, 38], [30, -98, 10, 18], [15, -90, 8, 10], [72, -40, 8, 18], [-12, -60, 24, 15], [-36, -66, 12, 7], [50, 15, 10, 25], [54, -3, 5, 3], [5, 20, 30, 22], [-20, 26, 12, 15], [28, 45, 10, 12], [52, 90, 20, 55], [25, 80, 14, 22], [25, 106, 10, 14], [36, 138, 6, 3], [-3, 115, 4, 15], [-25, 134, 12, 18], [-41, 174, 5, 3]];
+export const isLand = (lat: number, lon: number) => LAND.some(([a, o, ra, ro]) => { let dl = Math.abs(lon - o); if (dl > 180) dl = 360 - dl; return ((lat - a) / ra) ** 2 + (dl / ro) ** 2 < 1; });

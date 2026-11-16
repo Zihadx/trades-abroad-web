@@ -29,3 +29,10 @@ Written in an offline sandbox: it was **never installed, type-checked, built or 
 
 ## Content rules
 No fake vacancies, partners, stats or testimonials; demo/placeholder content is labelled. GSAP/Lenis not used; motion is Framer Motion (scroll parallax, tilt, reveals, marquee, progress bar).
+
+## Production notes
+Included: SEO metadata, OG image, sitemap, robots, manifest, JSON-LD (Organization, WebSite, FAQPage), security headers, skip link, error/loading/404 states, honeypot + rate-limited contact/newsletter API (`/api/contact`, optional webhook via `CONTACT_WEBHOOK_URL`), privacy/terms templates, page transitions, custom cursor (fine pointers only), reduced-motion handling.
+
+Before launch, you still need to: set `NEXT_PUBLIC_SITE_URL`; replace `hello@tradesabroad.example` in `lib/site.ts`; connect the contact API to a real destination (webhook/email/CRM) and a shared rate limiter; have the legal pages reviewed by counsel; replace placeholder testimonials with verified ones; verify every Unsplash link and licence; consider a Content-Security-Policy (not set, because it must allow Unsplash/unpkg/threejs.org); run Lighthouse and test on real devices; self-host the globe textures for reliability.
+
+New signature features: pre-loader intro, scroll-lit manifesto, pinned horizontal trades gallery, interactive route planner (dotted world map), live destination clocks, giant footer wordmark.
