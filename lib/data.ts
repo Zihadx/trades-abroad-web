@@ -53,18 +53,25 @@ export const faqs = [
 ];
 
 export const articles = [
-  { slug: "international-trades-careers", t: "International Skilled Trades Careers", d: "What working in your trade abroad can look like." },
-  { slug: "preparing-overseas", t: "Preparing for Overseas Employment", d: "Documents, skills and expectations to get ready early." },
-  { slug: "trades-in-demand", t: "Skilled Trades in Global Demand", d: "Understanding where and why trades skills are sought." },
+  { slug: "international-trades-careers", t: "International Skilled Trades Careers", d: "What working in your trade abroad can look like.", read: "5 min",
+    body: ["Skilled trades are portable in a way few careers are. A trained electrician, welder or HVAC technician uses the same core craft in every country, even if codes, tools and paperwork differ.", "Working abroad usually means adapting to a different regulatory environment. Many countries require local licensing or recognition of overseas qualifications before you can work independently.", "Start by learning how your trade is regulated in the countries you are interested in, and keep records of your training and work history organised and easy to share.", "Treat every country as its own research project. Rules, demand and timelines change, so rely on official government and employer sources."] },
+  { slug: "preparing-overseas", t: "Preparing for Overseas Employment", d: "Documents, skills and expectations to get ready early.", read: "6 min",
+    body: ["Good preparation shortens the path. Begin with a clear record of your qualifications, work history and references.", "Check your passport validity, and learn the visa pathways that apply to your trade and destination from the official immigration website.", "Think about practical skills: language, safety standards and the tools or measurement systems used in the destination.", "Be cautious of anyone who guarantees a job or asks for large upfront payments. Verify employers and recruiters before sharing documents or money."] },
+  { slug: "trades-in-demand", t: "Skilled Trades in Global Demand", d: "Understanding where and why trades skills are sought.", read: "4 min",
+    body: ["Demand for trades shifts with construction cycles, infrastructure investment, energy transition and population change.", "Official labour-market and skills-shortage lists published by governments are the most reliable guide to which occupations are sought.", "Demand is local. A trade in demand in one region may not be in another, so compare destinations rather than assuming.", "Keep your skills current. Certifications, safety training and exposure to modern equipment make a profile stronger."] },
+  { slug: "international-recruitment", t: "Understanding International Recruitment", d: "How the process works and what to expect at each stage.", read: "5 min",
+    body: ["International recruitment typically moves through profile review, employer screening, skills assessment and, if successful, an offer and onboarding.", "Timelines vary widely by employer and country. Visa processing and credential checks are often outside anyone's control.", "A transparent recruiter explains each stage, each cost and who pays it, in writing.", "Keep copies of everything you submit and receive, and ask questions whenever something is unclear."] },
+  { slug: "career-development", t: "Professional Career Development", d: "Grow your skills, credentials and confidence over time.", read: "4 min",
+    body: ["Career growth in the trades comes from experience plus recognised credentials. Plan the next qualification before you need it.", "Seek roles that expose you to larger projects, newer equipment and leadership responsibility.", "Document achievements as you go: projects completed, safety record, tools mastered.", "Mentors matter. Learn from experienced colleagues and share what you know with those coming up behind you."] },
 ];
 
 export const jobs = [
-  { id: 1, title: "Industrial Electrician", trade: "electrical", country: "uae", type: "Full-time" },
-  { id: 2, title: "Pipe Welder (TIG)", trade: "welding", country: "canada", type: "Contract" },
-  { id: 3, title: "HVAC Service Technician", trade: "hvac", country: "australia", type: "Full-time" },
-  { id: 4, title: "Site Carpenter", trade: "carpentry", country: "new-zealand", type: "Full-time" },
-  { id: 5, title: "Excavator Operator", trade: "heavy-equipment", country: "germany", type: "Contract" },
-  { id: 6, title: "Plant Mechanic", trade: "mechanical", country: "united-kingdom", type: "Full-time" },
-  { id: 7, title: "Commercial Plumber", trade: "plumbing", country: "australia", type: "Full-time" },
-  { id: 8, title: "Vehicle Diagnostics Technician", trade: "automotive", country: "canada", type: "Full-time" },
+  { id: 1, slug: "industrial-electrician-uae", title: "Industrial Electrician", trade: "electrical", country: "uae", type: "Full-time" },
+  { id: 2, slug: "pipe-welder-canada", title: "Pipe Welder (TIG)", trade: "welding", country: "canada", type: "Contract" },
+  { id: 3, slug: "hvac-technician-australia", title: "HVAC Service Technician", trade: "hvac", country: "australia", type: "Full-time" },
+  { id: 4, slug: "site-carpenter-new-zealand", title: "Site Carpenter", trade: "carpentry", country: "new-zealand", type: "Full-time" },
+  { id: 5, slug: "excavator-operator-germany", title: "Excavator Operator", trade: "heavy-equipment", country: "germany", type: "Contract" },
+  { id: 6, slug: "plant-mechanic-uk", title: "Plant Mechanic", trade: "mechanical", country: "united-kingdom", type: "Full-time" },
+  { id: 7, slug: "commercial-plumber-australia", title: "Commercial Plumber", trade: "plumbing", country: "australia", type: "Full-time" },
+  { id: 8, slug: "diagnostics-technician-canada", title: "Vehicle Diagnostics Technician", trade: "automotive", country: "canada", type: "Full-time" },
 ];

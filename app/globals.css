@@ -22,3 +22,13 @@ body { background: var(--color-ink); color: var(--color-fg); font-family: var(--
 .grid-bg { background-image: linear-gradient(rgba(200,241,105,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(200,241,105,.07) 1px, transparent 1px); background-size: 36px 36px; }
 .orb { border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(200,241,105,.35), rgba(21,28,24,.9) 55%, #080b09 75%); box-shadow: 0 0 120px -20px rgba(200,241,105,.35), inset 0 0 60px rgba(200,241,105,.12); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 38s linear infinite; }
+.btn-lime { position: relative; overflow: hidden; }
+.btn-lime::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s; }
+.btn-lime:hover::after { transform: translateX(120%); }
+@keyframes float { 50% { transform: translateY(-10px); } }
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes beam { from { transform: translateX(-30%) skewX(-28deg); opacity: 0; } 50% { opacity: .5; } to { transform: translateX(130%) skewX(-28deg); opacity: 0; } }
+.beam { animation: beam 7s ease-in-out infinite; }
+body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 70; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E"); }

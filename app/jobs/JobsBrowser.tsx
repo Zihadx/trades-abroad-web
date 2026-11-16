@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Search } from "lucide-react";
 import { destinations, jobs, trades } from "@/lib/data";
 
 export default function JobsBrowser() {
@@ -17,10 +18,10 @@ export default function JobsBrowser() {
       </div>
       <ul className="mt-8 grid gap-4 md:grid-cols-2">
         {list.map((j) => (
-          <li key={j.id} className="glass flex items-center justify-between gap-4 rounded-3xl p-6">
+          <li key={j.id}><Link href={`/jobs/${j.slug}`} className="glass group flex items-center justify-between gap-4 rounded-3xl p-6 transition-colors hover:border-lime/50">
             <div><h3 className="font-display text-xl font-semibold">{j.title}</h3><p className="mt-1 text-sm text-mute">{destinations.find((d) => d.slug === j.country)?.name} · {trades.find((t) => t.slug === j.trade)?.name} · {j.type}</p></div>
-            <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-mute">Demo</span>
-          </li>))}
+            <span className="flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs text-mute">Demo <ArrowUpRight size={14} className="group-hover:text-lime" /></span>
+          </Link></li>))}
       </ul>
       {list.length === 0 && <div className="mt-8 rounded-3xl border border-dashed border-white/20 p-12 text-center text-mute">No matching demo listings. Try clearing a filter.</div>}
     </div>

@@ -3,6 +3,7 @@ import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { ScrollProgress } from "@/components/Extras";
 
 const body = Inter({ subsets: ["latin"], variable: "--f-body", display: "swap" });
 const display = Inter_Tight({ subsets: ["latin"], variable: "--f-display", display: "swap" });
@@ -17,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${body.variable} ${display.variable}`}>
       <body>
-        <Nav />
+        <ScrollProgress /><Nav />
         <main>{children}</main>
         <Footer />
       </body>
